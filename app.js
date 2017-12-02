@@ -10,18 +10,11 @@ angularApp.controller('mainController', ['$scope', '$filter', function ($scope, 
         return $filter('lowercase')($scope.handle);
     };
 
-    $scope.$watch('handle', function (newValue, oldValue) {
-        console.info('Changed!');
-        console.log('Old:' + oldValue);
-        console.log('New:' + newValue);
-    });
-
-
-    setTimeout(function() {
-        $scope.$apply(function() {
-            $scope.handle = 'newhandle';
-            console.log('scope has changed');
-        });
-    }, 2000);
+    $scope.characters = 5;
+    $scope.rules = [
+        {rulename: "Must be 5 characters!"},
+        {rulename: "Must not be used elsewhere"},
+        {rulename: "Must be cool"},
+    ];
 
 }]);
