@@ -42,12 +42,10 @@
     <div class="container">
 
         <div ng-controller="mainController">
-            ng-click directive example: 
-            <input type="button" value="Click Me!" ng-click="alertClick()" />
-        <hr>
-        <br>
-            ng-cloak directive:
-            <div ng-cloak>{{ name }}</div>
+            {{ name }}
+        </div>
+        <div ng-controller="secondController">
+            {{ name }}
         </div>
 
     </div>
