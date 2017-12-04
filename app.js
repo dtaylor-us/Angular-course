@@ -48,7 +48,8 @@ myApp.directive("searchResult", function () {
         templateUrl: './components/searchresult.html',
         replace: true,
         scope: {
-            personObject: "="
-        } //isolating the scope ('@' : text, '=' : object)
+            personName: "@",
+            personAddress: "@"
+        } //isolating the scope
     };
 });
