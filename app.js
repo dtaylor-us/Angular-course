@@ -28,8 +28,7 @@ myApp.service('nameService', function () {
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
     //SCOPE ISOLATED: THIS DATA NOT AVAILABLE IN DIRECTIVE 
-    $scope.people = [
-        {
+    $scope.people = [{
             name: 'Diane Taylor',
             address: '321 Wildwood Rd.',
             city: 'Willernie',
@@ -49,7 +48,7 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($
             city: 'Willernie',
             state: 'MN',
             zip: '55090'
-        },     
+        },
         {
             name: 'Katherine Taylor',
             address: '321 Wildwood Rd.',
@@ -81,6 +80,38 @@ myApp.directive("searchResult", function () {
         scope: {
             personObject: "=",
             formattedAddressFn: "&"
-        } //isolating the scope 
+        }, //isolating the scope 
+        compile: function (elem, attrs) {
+
+            console.log('Compiling...');
+            // elem.removeAttr('class');
+            console.log(elem);
+
+            return {
+
+                pre: function (scope, elements, attrs) {
+
+                    console.log('Pre-linking...');
+
+                    console.log(scope);
+                    console.log(elements);
+
+                },
+                post: function (scope, elements, attrs) {
+
+                    console.log('Post-linking...');
+
+                    console.log(scope);
+
+                    if (scope.personObject.name == 'Katherine Taylor') {
+                        elements.removeAttr('class');
+                    }
+
+                    console.log(elements);
+
+                }
+
+            };
+        }
     };
 });
