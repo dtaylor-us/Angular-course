@@ -30,7 +30,14 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($
     //SCOPE ISOLATED: THIS DATA NOT AVAILABLE IN DIRECTIVE 
     $scope.person = {
         name: 'Clarence Taylor',
-        address: '321 Wildwood Rd., Willernie, MN, 55090'
+        address: '321 Wildwood Rd.', 
+        city: 'Willernie', 
+        state: 'MN',
+        zip: '55090'
+    };
+
+    $scope.formattedAddress = function(person) {
+        return person.address + '\n' + person.city + '\n' + person.state + '\n' + person.zip;
     };
 
 }]);
@@ -42,14 +49,15 @@ myApp.controller('secondController', ['$scope', '$log', '$routeParams', function
 }]);
 
 // DIRECTIVE MODEL
+//(TYPES: '@' : text, '=' : object, '&' : function)
 myApp.directive("searchResult", function () {
     return {
         //restrict: 'AECM',
         templateUrl: './components/searchresult.html',
         replace: true,
         scope: {
-            personName: "@",
-            personAddress: "@"
-        } //isolating the scope
+            personObject: "=",
+            formattedAddressFn: "&"
+        } //isolating the scope 
     };
 });
