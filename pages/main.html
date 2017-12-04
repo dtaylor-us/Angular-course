@@ -4,5 +4,5 @@
 <h3>Search Results</h3>
 <div class="list-group">
     <!-- Directives cannot contain commas or else it won't print the output -->
-    <search-result person-object="person" formatted-address-fn="formattedAddress(personParam)"></search-result>
+    <search-result person-object="person" formatted-address-fn="formattedAddress(personParam)" ng-repeat="person in people"></search-result>
 </div>

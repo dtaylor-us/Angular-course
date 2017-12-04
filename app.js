@@ -28,15 +28,38 @@ myApp.service('nameService', function () {
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
     //SCOPE ISOLATED: THIS DATA NOT AVAILABLE IN DIRECTIVE 
-    $scope.person = {
-        name: 'Clarence Taylor',
-        address: '321 Wildwood Rd.', 
-        city: 'Willernie', 
-        state: 'MN',
-        zip: '55090'
-    };
+    $scope.people = [
+        {
+            name: 'Diane Taylor',
+            address: '321 Wildwood Rd.',
+            city: 'Willernie',
+            state: 'MN',
+            zip: '55090'
+        },
+        {
+            name: 'Clarence Taylor',
+            address: '321 Wildwood Rd.',
+            city: 'Willernie',
+            state: 'MN',
+            zip: '55090'
+        },
+        {
+            name: 'Derek Taylor',
+            address: '321 Wildwood Rd.',
+            city: 'Willernie',
+            state: 'MN',
+            zip: '55090'
+        },     
+        {
+            name: 'Katherine Taylor',
+            address: '321 Wildwood Rd.',
+            city: 'Willernie',
+            state: 'MN',
+            zip: '55090'
+        }
+    ];
 
-    $scope.formattedAddress = function(person) {
+    $scope.formattedAddress = function (person) {
         return person.address + '\n' + person.city + '\n' + person.state + '\n' + person.zip;
     };
 
